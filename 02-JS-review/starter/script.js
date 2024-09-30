@@ -142,3 +142,36 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+
+
+// Destructuring
+
+const books = getBooks();
+
+// Helpful whenever you need to get some data out of an obejct. 
+
+const book = getBook(2);
+
+// const title = book.title;
+// const author = book.author;
+// author;
+// title;
+
+// Object Destructuring
+
+const {title, author, pages, publicationDate, genres, hasMovieAdaptation} = book;
+
+console.log(author, title);
+
+// Destructuring with Arrays
+
+console.log(genres);
+
+// const primaryGenre = genres[0];
+// const secondaryGenre = genres[1];
+
+// For arrays, just use the square brackets and point to the array. 
+
+const [primaryGenre, secondaryGenre] = genres;
+
+console.log(primaryGenre, secondaryGenre);
