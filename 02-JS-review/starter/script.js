@@ -150,7 +150,7 @@ const books = getBooks();
 
 // Helpful whenever you need to get some data out of an obejct. 
 
-const book = getBook(2);
+const book = getBook(1);
 
 // const title = book.title;
 // const author = book.author;
@@ -172,6 +172,62 @@ console.log(genres);
 
 // For arrays, just use the square brackets and point to the array. 
 
-const [primaryGenre, secondaryGenre] = genres;
+const [primaryGenre, secondaryGenre, ...otherGenre] = genres;
 
-console.log(primaryGenre, secondaryGenre);
+console.log(primaryGenre, secondaryGenre, otherGenre);
+
+
+// The Rest/Spread Operator, just use the ..., you can only place the spread operator at the end, must be last in the destructuring
+// Same syntax, ..., is also used for the spread operator
+
+const newGenres = [...genres, 'epic game'];
+// want an array that contains each, take all the value out of array and place them one by one. 
+newGenres;
+
+// objects, add new properties and update existing
+// Adding a new property
+// Overwriting an existing property
+
+const updatedBook = { 
+  ...book, 
+  moviePublicationDate: '2001-12-19', 
+  pages: 1210,
+};
+updatedBook;
+
+// Template Literals
+// allows you to create strings that contain any JS within the strings
+// use the backticks, ``, indicate to JS this is JS. 
+// add the ${} to add in a JS expression
+
+const getYear = (str) => str.split("-")[0];
+console.log(getYear(publicationDate));
+
+const summary = `${title}, is a book with ${pages}-page long book, written by ${author} and published in ${getYear(publicationDate)}. 
+The book ${hasMovieAdaptation ? '' : 'not'} been adapted as a movie`;
+
+summary;
+
+// Ternary operator
+// Operator that has three parts
+// 1. check condition, 2. result if true, 3. result if false
+
+const pagesRange = pages > 1000 ? 'over a thousand' : 'less than 1000';
+pagesRange
+
+console.log(`The book has ${pagesRange} pages`)
+
+// Arrow Functions
+// ES6 one line functions
+
+// function getYear(str) {
+//   return str.split("-")[0];
+// }
+
+// automatically returned without having to write the return keyword, single line
+//const getYear = (str) => str.split("-")[0];
+
+//console.log(getYear(publicationDate));
+
+
+// Logical Operators, short circuit. 
