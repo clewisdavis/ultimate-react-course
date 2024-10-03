@@ -150,7 +150,7 @@ const books = getBooks();
 
 // Helpful whenever you need to get some data out of an obejct. 
 
-const book = getBook(1);
+const book = getBook(2);
 
 // const title = book.title;
 // const author = book.author;
@@ -231,3 +231,44 @@ console.log(`The book has ${pagesRange} pages`)
 
 
 // Logical Operators, short circuit. 
+// operator will immediately return the first value
+// helpful to use as an if statement
+
+console.log(true && 'Some value');
+console.log(false && "Some value");
+
+console.log(hasMovieAdaptation && 'This book has a movie');
+
+// truthy, any value that is not a false
+// falsy, 0, '', null, undefined
+
+console.log('jonas' && 'Some string');
+console.log(0 && 'Some string');
+
+// or operator
+console.log(true || 'some strung');
+console.log(false || 'some string');
+
+console.log(book.translations.spanish);
+
+const spanishTranslation = book.translations.spanish || 'NOT TRANSLATED';
+spanishTranslation;
+
+console.log(book.reviews.librarything.reviewsCount);
+const countWrong = book.reviews.librarything.reviewsCount || 'no data';
+countWrong;
+
+
+// ?? will return the second value when it's 'null' or 'undefined'.
+const count = book.reviews.librarything.reviewsCount ?? 'no data';
+count;
+
+// Optional Chaining
+
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews.goodreads.reviewsCount;
+  const librarything = book.reviews.librarything.reviewsCount;
+  return goodreads + librarything;
+}
+
+console.log(getTotalReviewCount(book));
