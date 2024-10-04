@@ -145,12 +145,12 @@ function getBook(id) {
 
 
 // Destructuring
-
+/*
 const books = getBooks();
 
 // Helpful whenever you need to get some data out of an obejct. 
 
-const book = getBook(2);
+const book = getBook(3);
 
 // const title = book.title;
 // const author = book.author;
@@ -254,14 +254,13 @@ console.log(book.translations.spanish);
 const spanishTranslation = book.translations.spanish || 'NOT TRANSLATED';
 spanishTranslation;
 
-console.log(book.reviews.librarything.reviewsCount);
-const countWrong = book.reviews.librarything.reviewsCount || 'no data';
-countWrong;
-
+// console.log(book.reviews.librarything.reviewsCount);
+// const countWrong = book.reviews.librarything.reviewsCount || 'no data';
+// countWrong;
 
 // ?? will return the second value when it's 'null' or 'undefined'.
-const count = book.reviews.librarything.reviewsCount ?? 'no data';
-count;
+// const count = book.reviews.librarything.reviewsCount ?? 'no data';
+// count;
 
 // Optional Chaining
 
@@ -271,4 +270,28 @@ function getTotalReviewCount(book) {
   return goodreads + librarything;
 }
 
+// console.log(getTotalReviewCount(book));
+
+// Optional Chaining
+// ask JS to only keep the parts that are defined. 
+// in this case, book.reviews.librarything is undefined. 
+// add an optional chaining '?' to the end of it, if undefined will not result in error
+// set a default with ?? 0
+// helpful if some of the value do not exist
+
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews.goodreads.reviewsCount;
+  // optional chaining
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  librarything;
+  return goodreads + librarything;
+
+}
+
 console.log(getTotalReviewCount(book));
+ */
+
+// Array map Method, functional array methods
+// return new array based on original one
+
+
