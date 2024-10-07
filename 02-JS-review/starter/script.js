@@ -294,4 +294,42 @@ console.log(getTotalReviewCount(book));
 // Array map Method, functional array methods
 // return new array based on original one
 
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews.goodreads.reviewsCount;
+  // optional chaining
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  librarything;
+  return goodreads + librarything;
+}
 
+const books = getBooks();
+books;
+// map will loop over an array and return a new one
+const x = [1,2,3,4,5].map(el => el * 2);
+console.log(x);
+
+const essentialData = books.map((book) => ({
+    title: book.title,
+    author: book.author,
+    reviewsCount: getTotalReviewCount(book),
+  }
+));
+
+essentialData;
+
+// filter method
+// filter some elements of the array based on some condition
+
+// filter out some books that have more than 500 pages
+
+const longBooks = books
+    .filter((book)=>book.pages > 500)
+    .filter(book=>book.hasMovieAdaptation);
+
+longBooks;
+
+// combine filter and map
+const adventureBooks = books
+    .filter(books=>books.genres.includes('adventure'))
+    .map(book=>book.title);
+adventureBooks;
