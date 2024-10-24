@@ -333,3 +333,52 @@ const adventureBooks = books
     .filter(books=>books.genres.includes('adventure'))
     .map(book=>book.title);
 adventureBooks;
+
+
+// reduce method
+// most common use case, add together numbers
+// to reduce entire array to one value, final value
+// arguments, callback function and default value
+const pagesAllBooks = books.reduce((sum, book)=> sum + book.pages, 0);
+pagesAllBooks;
+
+// array sort method
+const arr = [3, 7, 1, 9, 6];
+// sort in a ascending way, use a - b, lowest to highest
+// when you do, b - a, it will be descending
+// follow this as a recipe
+// sort mutates the original array
+// not a good practice to mutate data
+// so use .slice() in front to make a copy
+const sorted = arr.slice().sort((a, b) => a - b);
+sorted;
+arr;
+
+// more practical, array of objects, sort by page number, ascending
+const sortedByPages = books.slice().sort((a,b) => b.pages - a.pages);
+sortedByPages;
+
+// Immutable, not change the original array
+// add, delete, and update array w/o changing the original
+// array of objects
+
+// 1. Add book object to array
+const newBook = {
+  id: 6,
+  title: "Harry Botter and the Chamber of Candy",
+  author: 'Frank Wilson',
+};
+// spread the new book into the new array
+const booksAfterAdding = [...books, newBook];
+booksAfterAdding;
+
+// 2. Delete a book from array
+// use the .filter method
+// condition, !==, returns a false value, this object will not be in the final array
+const booksAfterDelete = booksAfterAdding.filter(book => book.id !== 6);
+booksAfterDelete;
+
+// 3. Update a book object in the array
+// in the callback function, spread in the book array, then update property you want.
+const booksAfterUpdate = booksAfterDelete.map(book=> book.id === 1 ? {...book, pages: 1210 } : book);
+booksAfterUpdate;
