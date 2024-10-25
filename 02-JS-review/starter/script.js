@@ -289,7 +289,7 @@ function getTotalReviewCount(book) {
 }
 
 console.log(getTotalReviewCount(book));
- */
+
 
 // Array map Method, functional array methods
 // return new array based on original one
@@ -382,3 +382,44 @@ booksAfterDelete;
 // in the callback function, spread in the book array, then update property you want.
 const booksAfterUpdate = booksAfterDelete.map(book=> book.id === 1 ? {...book, pages: 1210 } : book);
 booksAfterUpdate;
+
+ */
+
+// Async to load data, promise method
+// fetch data from an API
+// use a dummy API placeholder, jsonplaceholder
+// fetching the data will take some time to download, 
+// have to wait for the data to do something with it before JS move on to next line, promise
+// Promise, pending, rejected, fulfilled
+// fulfilled, use the .then method once the data is arrived
+// .then(), add a callback function
+
+/*
+// fetch fired off the request to the API, then JS moved on to the next line
+fetch('https://jsonplaceholder.typicode.com/todos')
+    // JS moved to this line, registering this to be executed later, promise
+    // after some time passed and the data was retrieved, JS comes back and executes this callback function
+    // converted to JSON
+    .then(res => res.json())
+    // same here, to be executed later
+    // receive the data and log it 
+    .then((data) => console.log(data));
+
+// then JS executed this line of code. 
+console.log('chris');
+
+*/
+
+
+// Async/Await
+// async, will not automatically move forward
+async function getTodos() {
+  // await, pausing the code in the function
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await res.json();
+  console.log(data);
+}
+
+getTodos();
+
+console.log('chris');
