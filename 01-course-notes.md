@@ -86,3 +86,26 @@ This might be useful for you to review. Been a while.
 - Angular does two way data flow
 - Why, lot easier to understand how the data is flowing, down and more performant
 - Then, how do you pass data up to parent component?
+
+### JSX Rules
+
+- JSX works a lot like HTML
+- But you can enter a JS mode using the `{}` brackets
+- You can place any JS expression inside the {}
+- But statements are not allowed, if/else, for, switch
+- JSX produces a JS expression
+  - We can palce other pieces of JSX inside
+  - We can write JSX anywhere inside a component
+- A piece of JSX can only have one root element.
+
+- Some other differences between JSX and HTML
+  - `className` instead of HTML `class`
+  - htmlFor insstead of HTML's for
+  - Every tag needs to be closed. Ex. `<img />` or `<br />`
+  - All event handlers and other properties need to be camelCase. Ex. `onClick` or `onMouseOver`
+  - Exception: `aria-` and `data-` are written with dashes like HTML
+  - CSS inline styles are written like this `style={{<style>}}` to reference a variable and then an object.
+  - CSS property names are also camelCase
+  - Comments need to be in {} because they are JS
+
+### Rendering Lists
